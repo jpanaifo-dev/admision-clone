@@ -1,0 +1,7 @@
+export * from './IConvocatory'
+export * from './IProm_Convocatory'
+export * from './IProgram'
+export * from './ITimeline'
+export * from './IPaymentValidation'
+export * from './IApplicationRecord'
+export * from './IAdmissionModality'

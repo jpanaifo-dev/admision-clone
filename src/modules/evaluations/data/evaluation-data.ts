@@ -1,0 +1,38 @@
+export const admissionPeriods = [
+  {
+    id: '2024-1',
+    title: 'Admisión 2024 - I',
+    description: 'Proceso de admisión primer semestre 2024',
+    startDate: '2024-01-01',
+    endDate: '2024-03-31',
+    programs: 3,
+    status: 'Activo',
+  },
+  {
+    id: '2024-2',
+    title: 'Admisión 2024 - II',
+    description: 'Proceso de admisión segundo semestre 2024',
+    startDate: '2024-07-01',
+    endDate: '2024-09-30',
+    programs: 2,
+    status: 'Activo',
+  },
+  {
+    id: '2025-1',
+    title: 'Admisión 2025 - I',
+    description: 'Proceso de admisión primer semestre 2025',
+    startDate: '2025-01-01',
+    endDate: '2025-03-31',
+    programs: 4,
+    status: 'Activo',
+  },
+  {
+    id: '2025-2',
+    title: 'Admisión 2025 - II',
+    description: 'Proceso de admisión segundo semestre 2025',
+    startDate: '2025-07-01',
+    endDate: '2025-09-30',
+    programs: 3,
+    status: 'Activo',
+  },
+]
