@@ -26,7 +26,7 @@ export const fetchConvocatory = async (
   const url = `${API_BASE.CONVOCATORY}?${queryParams.toString()}`
 
   try {
-    const response = await fetchAdmissionService.get(url, { cache: 'no-store' })
+    const response = await fetchAdmissionService.get(url)
 
     if (!response.ok) {
       const errorResponse: {
@@ -76,7 +76,7 @@ export const fetchConvocatoryList = async (
   const url = `${API_BASE.CONVOCATORY_LIST}?${queryParams.toString()}`
 
   try {
-    const response = await fetchAdmissionService.get(url, { cache: 'no-store' })
+    const response = await fetchAdmissionService.get(url)
 
     if (!response.ok) {
       const errorResponse: {

@@ -17,9 +17,7 @@ export const fetchAdmissionRequirements = async (): Promise<{
   const url = `${API_BASE.REQUIREMENT}`
 
   try {
-    const response = await fetchAdmissionService.get(url, {
-      cache: 'no-store',
-    })
+    const response = await fetchAdmissionService.get(url)
 
     if (!response.ok) {
       const errorResponse: {
@@ -61,9 +59,7 @@ export const fetchAdmissionRequirementById = async (
   const url = `${API_BASE.REQUIREMENT}${id}`
 
   try {
-    const response = await fetchAdmissionService.get(url, {
-      cache: 'no-store',
-    })
+    const response = await fetchAdmissionService.get(url)
 
     if (!response.ok) {
       const errorResponse: {
