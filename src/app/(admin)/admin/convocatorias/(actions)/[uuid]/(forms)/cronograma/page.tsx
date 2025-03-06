@@ -2,7 +2,7 @@ import { fetchConvocatory } from '@/api/convocatory/convocatory'
 import { fetchTimeline } from '@/api/convocatory/timeline'
 import { TimelineConvocatoryForm } from '@/modules/admin'
 
-export default async function page({
+export default async function Page({
   params,
 }: {
   params: Promise<{ uuid: string }>

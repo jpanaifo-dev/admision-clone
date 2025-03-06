@@ -11,7 +11,7 @@ interface IProps {
   searchParams: SearchParams
 }
 
-export default async function page(props: IProps) {
+export default async function Page(props: IProps) {
   const { params, searchParams } = props
 
   const uuid = (await params).uuid
