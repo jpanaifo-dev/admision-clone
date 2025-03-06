@@ -2,7 +2,7 @@ import { fetchAdmissionRequirements } from '@/api/convocatory/requirements'
 import { HeaderSection } from '@/components/app'
 import { RequirementsTable } from '@/modules/admin/pages/requirements/requirements-table'
 
-export default async function page() {
+export default async function Page() {
   const requirements = await fetchAdmissionRequirements()
 
   return (
