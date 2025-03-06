@@ -5,7 +5,9 @@ import { TabsSelection } from '@/modules/admision/pages/convocatory/details-admi
 import { SearchParams } from '@/types'
 
 interface IProps {
-  params: Promise<{ uuid: string }>
+  params: {
+    uuid: string | undefined
+  }
   searchParams: SearchParams
 }
 
