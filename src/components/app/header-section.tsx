@@ -42,7 +42,7 @@ export const HeaderSection = (props: HeaderSectionProps) => {
     showDivider = true,
     showAddButton = true,
     showExportButton = true,
-    showRefreshButton = false,
+    showRefreshButton = true,
     hrefAddLink,
     onExportButtonClick,
     onRefreshButtonClick,

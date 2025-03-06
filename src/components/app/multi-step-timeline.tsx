@@ -6,7 +6,6 @@ export interface IStepper {
   title: string
   description?: string
   content?: React.ReactNode
-  href?: string
 }
 
 interface MultiStepTimelineProps {
@@ -82,4 +81,3 @@ export const MultiStepTimeline = (props: MultiStepTimelineProps) => {
     </div>
   )
 }
-

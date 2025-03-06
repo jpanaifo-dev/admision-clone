@@ -1,4 +1,4 @@
-import { HeaderSection, TabSection, ConfirmationModal } from '@/components/app'
+import { HeaderSection, TabSection, AlertDialogCustom } from '@/components/app'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -18,22 +18,22 @@ export default function Page() {
       />
 
       <TabSection
-        code={`import { ConfirmationModal } from '@/components/app'
+        code={`import { AlertDialogCustom } from '@/components/app'
 
             export const SomeComponent = () => {
 
                 return (
-                    <ConfirmationModal 
+                    <AlertDialogCustom 
                     title="¿Estás seguro de que deseas eliminar este elemento?">
                         Este es una prueba de alerta personalizada
-                    </ConfirmationModal>
+                    </AlertDialogCustom>
                 )
             }
 
         `}
       >
         <section className="max-w-lg shadow-lg p-6 rounded-md w-full flex flex-col">
-          <ConfirmationModal
+          <AlertDialogCustom
             title="¿Estás seguro de que deseas eliminar este elemento?"
             description="Este es una prueba de alerta personalizada"
           />

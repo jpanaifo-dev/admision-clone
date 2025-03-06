@@ -33,10 +33,9 @@ const hasAccessToRoute = (
   return menuItems.some((section) =>
     section.menus.some(
       (menu) =>
-        (menu?.menu?.url && pathname.startsWith(menu.menu.url)) ||
+        menu.menu.url === pathname ||
         menu.submenus.some(
-          (submenu: SubmenuElement) =>
-            submenu?.url && pathname.startsWith(submenu.url)
+          (submenu: SubmenuElement) => submenu.url === pathname
         )
     )
   )

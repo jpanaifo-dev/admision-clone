@@ -9,9 +9,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import { cn } from '@/lib/utils'
 
-interface ConfirmationModalProps {
+interface AlertDialogCustomProps {
   open?: boolean
   onOpenChange?: (open: boolean) => void
   title?: string
@@ -19,11 +18,9 @@ interface ConfirmationModalProps {
   handleConfirm?: () => void
   handleCancel?: () => void
   labelCancel?: string
-  labelConfirm?: string
-  isDanger?: boolean
 }
 
-export const ConfirmationModal = (props: ConfirmationModalProps) => {
+export const AlertDialogCustom = (props: AlertDialogCustomProps) => {
   const {
     title,
     open,
@@ -32,8 +29,6 @@ export const ConfirmationModal = (props: ConfirmationModalProps) => {
     handleCancel,
     handleConfirm,
     labelCancel,
-    labelConfirm,
-    isDanger,
   } = props
 
   return (
@@ -52,16 +47,12 @@ export const ConfirmationModal = (props: ConfirmationModalProps) => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={handleCancel}>
-            {labelCancel || 'Cancelar'}
-          </AlertDialogCancel>
+          <AlertDialogCancel onClick={handleCancel}>Cancelar</AlertDialogCancel>
           <AlertDialogAction
             onClick={handleConfirm}
-            className={cn(
-              isDanger && 'text-white bg-danger-500 hover:bg-danger-600'
-            )}
+            className="bg-red-500 hover:bg-red-600"
           >
-            {labelConfirm || 'Continuar'}
+            {labelCancel || 'Continuar'}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

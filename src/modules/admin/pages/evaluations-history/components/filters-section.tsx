@@ -1,53 +1,43 @@
-"use client";
+'use client'
 
-import { DatePickerCustom } from "@/components/app";
-import { CommandFilter, SearchFilter } from "@/components/app/filters";
-import { useFilterFromUrl } from "@/lib/filter-url";
+import { DatePickerCustom } from '@/components/app'
+import { CommandFilter, SearchFilter } from '@/components/app/filters'
+import { useFilterFromUrl } from '@/lib/filter-url'
 
-const filtersValue = [
-    { value: "true", label: "Activo" },
-    { value: "false", label: "Inactivo" },
-];
+const filters = [
+    { value: 'active', label: 'Activo' },
+    { value: 'inactive', label: 'Inactivo' },
+    { value: 'pending', label: 'Pendiente' },
+    { value: 'canceled', label: 'Cancelado' },
+]
 
-interface IFiltersSection {
-    filters?: Array<"status" | "type" | "datePicker">;
-}
+export default function FiltersSection() {
+    const { getParams } = useFilterFromUrl()
 
-export default function FiltersSection(props: IFiltersSection) {
-    const { filters = [] } = props;
+    const newStatus = getParams({ key: 'status', value: '' })
+    const newType = getParams({ key: 'type', value: '' })
 
-    const { getParams } = useFilterFromUrl();
-
-    const hasFilter = (filterKey: "status" | "type" | "datePicker") =>
-        filters.includes(filterKey);
-
-    const newStatus = getParams({ key: "status", value: "" });
-    const newType = getParams({ key: "type", value: "" });
 
     return (
         <section className="flex justify-between gap-4 w-full overflow-x-auto xl:overflow-x-hidden">
             <div className="flex gap-2">
-                <SearchFilter placeholder="Buscar" icon className="min-w-[190px]" />
+                <DatePickerCustom className="w-full" />
+                <CommandFilter
+                    filterKey='status'
+                    label='Estado'
+                    data={filters}
+                    searchParam={{ initialStatus: newStatus }}
+                />
             </div>
             <div className="flex gap-2">
-                {hasFilter("status") && (
-                    <CommandFilter
-                        filterKey="status"
-                        label="Estado"
-                        data={filtersValue}
-                        searchParam={{ initialStatus: newStatus }}
-                    />
-                )}
-                {hasFilter("type") && (
-                    <CommandFilter
-                        filterKey="type"
-                        label="Tipo"
-                        data={filtersValue}
-                        searchParam={{ initialStatus: newType }}
-                    />
-                )}
-                {hasFilter("datePicker") && <DatePickerCustom className="w-full" />}
+                <CommandFilter
+                    filterKey='type'
+                    label='Tipo'
+                    data={filters}
+                    searchParam={{ initialStatus: newType }}
+                />
+                <SearchFilter placeholder="Buscar" icon className='min-w-[190px]' />
             </div>
         </section>
-    );
+    )
 }

@@ -16,7 +16,6 @@ import {
 import { Book, Download, Scroll } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ToolCard } from '../../components'
-// import { SERVICES_MODULES } from '@/config/modules.cofig'
 import { SERVICES_MODULES } from '@/config/modules.cofig'
 import Link from 'next/link'
 import {
@@ -33,8 +32,6 @@ interface ProgramStudyPlanProps {
 }
 
 export const ProgramStudyPlan = ({ study_plan }: ProgramStudyPlanProps) => {
-  // slplit to /admision/convocatorias/uuid/id to URL_LOCAL
-  // const url = URL_LOCAL
   const URL_TRASH = 'epg_program_service/api///'
   const URL_DOWNLOAD = `${URL_LOCAL}/${study_plan?.file}`.replace(URL_TRASH, '')
 

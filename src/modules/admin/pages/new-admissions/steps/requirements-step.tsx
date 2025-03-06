@@ -25,29 +25,43 @@ interface RequirementFormValues {
 }
 
 export default function RequirementsStep() {
-    const [requirements, setRequirements] = React.useState<Requirement[]>([
-        {
-            id: "1",
-            name: "Nombre del requisito",
-            isActive: true,
-            fileAcceptance: false,
-            evaluationPercentage: 20,
-        },
-        {
-            id: "2",
-            name: "Nombre del requisito",
-            isActive: true,
-            fileAcceptance: false,
-            evaluationPercentage: 20,
-        },
-        {
-            id: "3",
-            name: "Nombre del requisito",
-            isActive: true,
-            fileAcceptance: false,
-            evaluationPercentage: 20,
-        }
-    ])
+  const [requirements, setRequirements] = React.useState<Requirement[]>([
+    {
+      id: '1',
+      name: 'Nombre del requisito',
+      isActive: true,
+      fileAcceptance: false,
+      evaluationPercentage: 20,
+    },
+    {
+      id: '2',
+      name: 'Nombre del requisito',
+      isActive: true,
+      fileAcceptance: false,
+      evaluationPercentage: 20,
+    },
+    {
+      id: '3',
+      name: 'Nombre del requisito',
+      isActive: true,
+      fileAcceptance: false,
+      evaluationPercentage: 20,
+    },
+    {
+      id: '4',
+      name: 'Nombre del requisito',
+      isActive: true,
+      fileAcceptance: false,
+      evaluationPercentage: 20,
+    },
+    {
+      id: '5',
+      name: 'Nombre del requisito',
+      isActive: true,
+      fileAcceptance: false,
+      evaluationPercentage: 20,
+    },
+  ])
 
   const { createFilter } = useFilterFromUrl()
 

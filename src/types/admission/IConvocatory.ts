@@ -1,19 +1,15 @@
 import { ICourse } from '../academic'
-import { IPeriod } from '../core'
-import { IConvocatoryProgram } from './IProgram'
 
 export interface IConvocatory {
   id: number
   uuid: string
   period_uuid: string
-  period: IPeriod
   description: string
   start_date: Date
   end_date: Date
   is_active: boolean
   is_public: boolean
   regulations: string | null
-  programs: IConvocatoryProgram[]
 }
 
 export interface IConvocatoryFilter {
@@ -33,12 +29,4 @@ export interface IStudyPlanDetails {
   description: string
   file: string
   course: ICourse[]
-}
-
-export interface ICreateConvocatory {
-  description: string
-  start_date: string
-  end_date: string
-  is_active: boolean
-  regulation: string
 }

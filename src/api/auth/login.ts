@@ -18,9 +18,8 @@ export const fetchLogin = async (
     const response = await fetchUserService.post(path, data, false, headers)
 
     if (!response.ok) {
-      const errorResponse = await response.json()
-      console.error('Error al iniciar sesión:', errorResponse)
-      const errorMessages = [errorResponse.message]
+      const errorResponse: { [key: string]: string[] } = await response.json()
+      const errorMessages = Object.values(errorResponse).flat()
       return {
         status: response.status,
         errors: errorMessages,

@@ -9,74 +9,45 @@ import {
 } from '@/components/ui/dropdown-menu'
 import type { ColumnDef } from '@tanstack/react-table'
 import { MoreHorizontal } from 'lucide-react'
-import { IConvocatory } from '@/types/admission'
+import { IConvocatoryHistory } from './table-history-convocatory'
 import Link from 'next/link'
 
-export const historycolumns: ColumnDef<IConvocatory>[] = [
+export const historycolumns: ColumnDef<IConvocatoryHistory>[] = [
   {
     accessorKey: 'id',
     header: 'ID',
   },
   {
-    accessorKey: 'description',
+    accessorKey: 'convocatory_name',
     header: 'CONVOCATORIA',
   },
   {
-    accessorKey: 'start_date',
+    accessorKey: 'date_register',
     header: 'FECHA DE REGISTRO',
   },
-  // {
-  //     accessorKey: 'programs',
-  //     header: 'PROGRAMA OFRECIDOS',
-  //     cell: ({ row }) => {
-  //         const { programs } = row.original;
-
-  //         return (
-  //             <>
-  //                 {Array.isArray(programs) && programs.length > 0 ? (
-  //                     <ul className="list-inside">
-  //                         {programs.map((program) => (
-  //                             <li key={program.program_type} className="text-xs">
-  //                                 <span className="text-xs">{program.program_type}:</span> {program.count}
-  //                             </li>
-  //                         ))}
-  //                     </ul>
-  //                 ) : (
-  //                     <span className="text-xs">
-  //                         Sin programas asignados
-  //                     </span>
-  //                 )}
-  //             </>
-  //         );
-  //     }
-  // },
   {
-    accessorKey: 'period_uuid',
-    header: 'PERIODO DE VIGENCIA',
-    cell: ({ row }) => {
-      const { start_date, end_date } = row.original
-      return (
-        <span>
-          {start_date.toString()} - {end_date.toString()}
-        </span>
-      )
-    },
+    accessorKey: 'program_offering',
+    header: 'PROGRAMA OFRECIDOS',
   },
   {
-    accessorKey: 'is_active',
+    accessorKey: 'period_vigent',
+    header: 'PERIODO DE VIGENCIA',
+  },
+  {
+    accessorKey: 'status',
     header: 'ESTADO',
     cell: ({ row }) => {
-      const { is_active } = row.original
+      const { status } = row.original
 
       return (
         <span
           className={`px-2 py-1 text-xs font-semibold rounded-full ${
-            is_active === true
+            status === 'Activa'
               ? 'bg-green-100 text-green-800'
               : 'bg-red-100 text-red-800'
           }`}
         >
-          {is_active === true ? 'Activo' : 'Inactivo'}
+          {status}
         </span>
       )
     },
@@ -86,7 +57,7 @@ export const historycolumns: ColumnDef<IConvocatory>[] = [
     header: 'ACCIONES',
     enableHiding: false,
     cell: ({ row }) => {
-      const { uuid } = row.original
+      const { id } = row.original
 
       return (
         <DropdownMenu>
@@ -101,7 +72,7 @@ export const historycolumns: ColumnDef<IConvocatory>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem asChild>
-              <Link href={`/admin/convocatorias/${uuid}`}>Detalles</Link>
+              <Link href={`${''}/${id}`}>Detalles</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

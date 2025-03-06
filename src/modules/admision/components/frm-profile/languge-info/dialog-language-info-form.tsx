@@ -21,7 +21,7 @@ import {
   useFormStore,
 } from '@/modules/admision'
 import { toast } from 'react-toastify'
-import { ConfirmationModal, ToastCustom } from '@/components/app'
+import { AlertDialogCustom, ToastCustom } from '@/components/app'
 import { useRouter } from 'next/navigation'
 import { ADMISSION_URLS_APP } from '@/config/urls-data/admission.urls.config'
 import { DialogLanguageInfoFormProps } from '../profile.interfaces.props'
@@ -144,7 +144,7 @@ export const DialogLanguageInfoForm = (props: DialogLanguageInfoFormProps) => {
         </DialogContent>
       </Dialog>
       {/* AlertDialog */}
-      <ConfirmationModal
+      <AlertDialogCustom
         open={isAlertOpen}
         title="Salir sin guardar"
         description="¿Estás seguro que deseas salir sin guardar los cambios?"

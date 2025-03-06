@@ -1,8 +1,8 @@
 import { IStepper } from "@/components/app/multi-step-timeline";
-// import CreateTimelineStep from "./create-timeline-step";
+import BasicInfoStep from "./basic-info-step";
+import CreateAdmissionStep from "./create-admission-step";
 import AddProgramStep from "./add-program-step";
 import RequirementsStep from "./requirements-step";
-import BasicInfoStep from "./basic-info-step";
 
 export const convocationSteps: IStepper[] = [
     {
@@ -10,15 +10,13 @@ export const convocationSteps: IStepper[] = [
         title: 'Información básica',
         description: 'Descripción del paso 1',
         content: <BasicInfoStep />,
-        href: '/admin/convocatorias/nuevo',
     },
-    // {
-    //     id: '2',
-    //     title: 'Creación de cronograma',
-    //     description: 'Descripción del paso 2',
-    //     content: <CreateTimelineStep />,
-    //     href: '`/admin/convocatorias/nuevo/${id}/editar`',
-    // },
+    {
+        id: '2',
+        title: 'Creación de cronograma',
+        description: 'Descripción del paso 2',
+        content: <CreateAdmissionStep />,
+    },
     {
         id: '3',
         title: 'Asignación de programas',

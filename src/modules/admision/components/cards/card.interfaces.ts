@@ -52,10 +52,11 @@ export interface AdmissionCardProps {
   subtitle: string
   dateRange: string
   programCount: number
+  requirementCount: number
+  hasRequirements: boolean
   isActive?: boolean
-  onEdit?: string
+  onEdit?: () => void
   onDetails?: string
-  programDetails?: string
 }
 
 export interface ProgramDetailCardProps {

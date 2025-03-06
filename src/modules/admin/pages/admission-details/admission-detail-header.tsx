@@ -1,7 +1,7 @@
 'use client'
 
-import { Card } from "@/components/ui/card"
-import { BackButton } from "@/utils/back-button"
+import {Card} from "@/components/ui/card"
+import {BackButton} from "@/utils/back-button"
 
 export default function ApplicationDetailsHeader() {
     return (
@@ -9,7 +9,7 @@ export default function ApplicationDetailsHeader() {
             <Card className="p-6 rounded-sm bg-background shadow-none">
                 <div className="space-y-6">
                     <div className="flex items-center gap-4">
-                        <BackButton variant={"outline"} />
+                        <BackButton variant={"outline"}/>
                         <h2 className="text-xl font-semibold">Postulación</h2>
                     </div>
 

@@ -13,8 +13,6 @@ import { fetchAdmissionModalities } from './admission-modality-list'
 import { createEvaluation, updateEvaluation } from './evaluation'
 import { getApplicantValidate } from './get-applicant-validate'
 import { attachFileToRequirement } from './requirements-program'
-import { createOrUpdateConvocatory } from './convocatory.admin.create'
-import { updateEventCallBulk, deleteEventCall } from './timeline.admin'
 
 export {
   fetchConvocatory,
@@ -33,7 +31,4 @@ export {
   updateEvaluation,
   getApplicantValidate,
   attachFileToRequirement,
-  createOrUpdateConvocatory,
-  updateEventCallBulk,
-  deleteEventCall,
 }

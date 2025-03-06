@@ -7,7 +7,6 @@ import { ADMIN_URLS_APP } from '@/config/urls-data/admin.urls.config'
 import { getUserAuth } from '@/lib/session'
 import { IPerson, IUserAuth } from '@/types'
 import { MenuConfigApps } from '@/types/configApps'
-import { TokenExpirationModal } from '@/modules/auth'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -57,7 +56,6 @@ export default async function Layout(props: LayoutProps) {
         app={APP_NAME_KEY}
       >
         {children}
-        <TokenExpirationModal />
       </AdminPanelLayout>
     </>
   )

@@ -285,5 +285,5 @@ export const LABELS_BUTTONS_FORM = {
 export const languageLevels = [
   { id: 1, name: 'Básico' },
   { id: 2, name: 'Intermedio' },
-  { id: 3, name: 'Avanzado' },
+  { id: 3, name: 'Avanzado' },
 ]

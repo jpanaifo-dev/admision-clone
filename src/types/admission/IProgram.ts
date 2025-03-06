@@ -95,9 +95,3 @@ export interface IRequirementProgram {
   is_permit_file: boolean
   observation: string
 }
-
-export interface IConvocatoryProgram {
-  program_type: string;
-  abbreviation: string;
-  count:        number;
-}

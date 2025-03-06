@@ -60,7 +60,8 @@ export const PaymentValidateForm = ({
   const [loading, setLoading] = useState(false)
   const [isResendDisabled, setIsResendDisabled] = useState(false)
   const [timeLeft, setTimeLeft] = useState(30)
-  const [paymentValidate, setPaymentToken] = useState<IPaymentValidation | null>(null)
+  const [paymentValidate, setPaymentToken] =
+    useState<IPaymentValidation | null>(null)
 
   const form = useForm<z.infer<typeof paymentValidateSchema>>({
     resolver: zodResolver(paymentValidateSchema),
@@ -306,7 +307,7 @@ export const PaymentValidateForm = ({
       {currentStep === 2 && (
         <section className="flex flex-col items-center max-w-4xl">
           <ProgramConfirm
-            payment_uuid={paymentValidate?.uuid ?? ''}
+            payment_uuid={paymentValidate?.uuid || ''}
             person_uuid={person_uuid}
             promotion_convocatory={promotion_convocatory}
             programData={programData}

@@ -22,7 +22,7 @@ import {
   useJobSector,
 } from '@/modules/admision'
 import { toast } from 'react-toastify'
-import { ConfirmationModal, ToastCustom } from '@/components/app'
+import { AlertDialogCustom, ToastCustom } from '@/components/app'
 import { useRouter } from 'next/navigation'
 import { ADMISSION_URLS_APP } from '@/config/urls-data/admission.urls.config'
 import { PROFILE_FORM_LABELS } from '../config.constants'
@@ -156,7 +156,7 @@ export const DialogJobInfoForm = (props: DialogAcademicInfoFormProps) => {
       </Dialog>
 
       {/* AlertDialog */}
-      <ConfirmationModal
+      <AlertDialogCustom
         open={isALertOpen}
         title="¿Estás seguro de salir?"
         description="Si sales sin guardar, perderás los cambios realizados."

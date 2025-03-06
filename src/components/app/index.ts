@@ -27,7 +27,7 @@ import CustomSelectInput from './forms/select-input'
 import FormField from './forms/form-field'
 import { AlertMenssage } from './alert-menssage'
 import { DropzoneCustom } from './dropzone-custom'
-import { SpinnerLoadingScreen } from './loading-modal'
+import { AlertDialogCustom } from './alerts/alert-dialog-custom'
 
 export {
   NavBarCustom,
@@ -59,7 +59,5 @@ export {
   FormField,
   AlertMenssage,
   DropzoneCustom,
-  SpinnerLoadingScreen,
+  AlertDialogCustom,
 }
-
-export * from './alerts'

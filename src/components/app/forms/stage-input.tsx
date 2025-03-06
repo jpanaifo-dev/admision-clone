@@ -1,15 +1,13 @@
 import { Label } from "@/components/ui/label"
-import { cn } from "@/lib/utils"
 
 interface StageInputProps {
     description?: string
     label?: string
     input?: JSX.Element
-    desClassNames?: string
 }
 
 export default function StageInput(props: StageInputProps) {
-    const { description, label, input, desClassNames } = props
+    const { description, label, input } = props
 
     return (
         <div className="flex flex-col gap-5">
@@ -17,12 +15,12 @@ export default function StageInput(props: StageInputProps) {
                 <div className="md:w-1/2 space-y-1">
                     <Label
                         htmlFor={label}
-                        className="text-sm font-semibold"
+                        className="text-base font-semibold"
                     >
                         {label}
                     </Label>
                     {description &&
-                        <div className={cn("hidden md:block text-sm text-muted-foreground", desClassNames)}>
+                        <div className="hidden md:block text-sm text-muted-foreground">
                             {description}
                         </div>
                     }
