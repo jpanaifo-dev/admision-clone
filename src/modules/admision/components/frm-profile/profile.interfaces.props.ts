@@ -1,4 +1,5 @@
 import {
+  ICountry,
   IPersonAcademic,
   IPersonAcademicList,
   IPersonContact,
@@ -34,6 +35,7 @@ export interface JobInfoFormProps {
   idEdit?: string
   defaultData?: IPersonJobList[]
   jobInfo?: IPersonJob
+  countryDefaultData: ICountry | null
 }
 
 export interface DialogAcademicInfoFormProps {

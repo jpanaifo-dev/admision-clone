@@ -13,7 +13,7 @@ const { TITLE, DESCRIPTION } = JOB_FORM
 const URL_ADD = `${ADMISSION_URLS_APP.PROFILE.JOB}?add=true`
 
 export function JobInfoForm(props: JobInfoFormProps) {
-  const { defaultData, activeDialog, idEdit } = props
+  const { defaultData, activeDialog, idEdit, countryDefaultData } = props
   const isEmpty = !defaultData || defaultData.length === 0
 
   return (
@@ -52,11 +52,17 @@ export function JobInfoForm(props: JobInfoFormProps) {
             ))}
         </section>
       </div>
-      {activeDialog && <DialogJobInfoForm person_token={props.person_token} />}
+      {activeDialog && (
+        <DialogJobInfoForm
+          person_token={props.person_token}
+          countryDefaultData={null}
+        />
+      )}
       {idEdit && (
         <DialogJobInfoForm
           person_token={props.person_token}
           defaultData={props.jobInfo}
+          countryDefaultData={countryDefaultData}
         />
       )}
     </form>

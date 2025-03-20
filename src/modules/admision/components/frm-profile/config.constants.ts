@@ -102,6 +102,7 @@ export const PROFILE_FORM_LABELS = {
         },
         birthplace: {
           label: 'Lugar nacimiento *',
+          placeholder: 'Seleccione su lugar de nacimiento',
         },
         birthdate: {
           label: 'Fecha de nacimiento *',

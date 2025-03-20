@@ -28,6 +28,7 @@ import { DialogLanguageInfoFormProps } from '../profile.interfaces.props'
 import { PROFILE_FORM_LABELS } from '../config.constants'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { FileCertificateSection, LanguageInfoSection } from './sections'
+import { LoadingAbsolute } from '@/modules/app'
 
 const { LANGUAGE_FORM } = PROFILE_FORM_LABELS
 const { TITLE, DESCRIPTION, MESSAGE } = LANGUAGE_FORM
@@ -151,6 +152,7 @@ export const DialogLanguageInfoForm = (props: DialogLanguageInfoFormProps) => {
         handleConfirm={handleConfirmExit}
         handleCancel={handleCancelExit}
       />
+      <LoadingAbsolute show={isLoading} />
     </>
   )
 }

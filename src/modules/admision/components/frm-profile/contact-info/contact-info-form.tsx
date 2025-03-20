@@ -53,6 +53,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { usePreventUnload } from '@/hooks'
+import { LoadingAbsolute } from '@/modules/app'
 
 export function ContactInfoForm(props: IContactInfoFormProps) {
   const { defaultData, person_token } = props
@@ -364,6 +365,7 @@ export function ContactInfoForm(props: IContactInfoFormProps) {
           </Button>
         </div>
       </form>
+      <LoadingAbsolute show={loading} />
     </Form>
   )
 }

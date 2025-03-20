@@ -22,3 +22,15 @@ export interface IUniversity {
 export interface IUniversityQuery {
   search?: string
 }
+
+export interface IUbigeoFilter {
+  id?: number
+  uuid?: string
+  code?: number
+  region?: string
+  region__icontains?: string
+  province?: string
+  province__icontains?: string
+  district?: string
+  district__icontains?: string
+}

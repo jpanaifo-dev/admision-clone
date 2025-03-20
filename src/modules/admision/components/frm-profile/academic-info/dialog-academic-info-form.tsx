@@ -34,6 +34,7 @@ import {
   FileUploadSection,
   StudyInfoSection,
 } from './sections'
+import { LoadingAbsolute } from '@/modules/app'
 
 const { EDUCATION_FORM } = PROFILE_FORM_LABELS
 const { TITLE, DESCRIPTION } = EDUCATION_FORM
@@ -195,6 +196,7 @@ export const DialogAcademicInfoForm = (props: DialogAcademicInfoFormProps) => {
         handleCancel={handleCancelExit}
         labelCancel="Sí, salir"
       />
+      <LoadingAbsolute show={isLoading} />
     </>
   )
 }

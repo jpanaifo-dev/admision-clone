@@ -21,21 +21,22 @@ import { Input } from '@/components/ui/input'
 import { WORK_MODALITIES } from '../work-modalities'
 import { useState } from 'react'
 import { CountrySelect } from '../../country-select'
+import { ICountry } from '@/types'
 
 const { JOB_FORM } = PROFILE_FORM_LABELS
 const { FIELDS } = JOB_FORM
 
-export const JobInfosection = () => {
+interface JobInfosectionProps {
+  countryDefaultData: ICountry | null
+}
+
+export const JobInfosection = (props: JobInfosectionProps) => {
+  const { countryDefaultData } = props
   const form = useFormContext<PersonJobType>()
   const { jobSectorList, loading } = useJobSector()
 
-  const defaultData = form.getValues()
-
   //modal country
   const [openCountry, setOpenCountry] = useState(false)
-  const [valueCountry, setValueCountry] = useState<string>(
-    defaultData?.country_uuid || ''
-  )
 
   return (
     <>
@@ -119,22 +120,12 @@ export const JobInfosection = () => {
           <FormItem>
             <FormLabel>{FIELDS.country.label}</FormLabel>
             <CountrySelect
+              defaultCountry={countryDefaultData}
               popoverClassName="min-w-[332px]  md:w-[728px]"
               open={openCountry}
               setOpen={setOpenCountry}
-              defaultUuid={defaultData?.country_uuid || ''}
-              onChange={(currentValue) => {
-                setValueCountry(
-                  currentValue === valueCountry
-                    ? defaultData?.country_uuid || ''
-                    : currentValue
-                )
-                field?.onChange(
-                  currentValue === valueCountry
-                    ? defaultData?.country_uuid || ''
-                    : currentValue
-                )
-                setOpenCountry(false)
+              onChange={(value) => {
+                field?.onChange(value)
               }}
             />
             <FormMessage />

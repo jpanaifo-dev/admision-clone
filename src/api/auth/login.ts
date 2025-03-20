@@ -51,7 +51,6 @@ export const signInWithGoogle = async (
 }> => {
   const path = ENDPOINTS_CONFIG.AUTH.LOGIN_WITH_GOOGLE
   const headers = await buildHeaders(role === 'admin' ? 'ADMIN' : 'USER')
-
   try {
     const response = await fetchUserService.post(
       path,

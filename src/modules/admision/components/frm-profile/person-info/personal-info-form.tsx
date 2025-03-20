@@ -10,7 +10,7 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { Form } from '@/components/ui/form'
-import { IPerson } from '@/types'
+import { ICountry, IPerson, IUbigeo } from '@/types'
 import { updatePerson } from '@/api/persons'
 import { ToastCustom } from '@/components/app'
 import { toast } from 'react-toastify'
@@ -20,16 +20,19 @@ import { OriginBirthDay } from './origin-birth-day'
 import { Button } from '@/components/ui/button'
 import { DemographicInformation } from './demographic-information'
 import { useFormPersonStore } from '@/modules/admision'
+import { LoadingAbsolute } from '@/modules/app'
 
 interface IPersonalInfoFormProps {
   defaultData?: IPerson
+  countryDefaultData: ICountry | null
+  ubigeoDefaultData: IUbigeo | null
 }
 
 // Natural person
 const PERSON_TYPES = 1
 
 export function PersonalInfoForm(props: IPersonalInfoFormProps) {
-  const { defaultData } = props
+  const { defaultData, countryDefaultData, ubigeoDefaultData } = props
 
   const { maritalStatus } = useMaritalStatus()
   const [loading, setLoading] = useState<boolean>(false)
@@ -95,11 +98,13 @@ export function PersonalInfoForm(props: IPersonalInfoFormProps) {
           description="Los datos se actualizaron correctamente"
         />
       )
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
       window.scrollTo(0, 0)
       setTimeout(() => {
         window.location.reload()
       }, 3000)
-      setLoading(false)
     }
   }
 
@@ -112,7 +117,11 @@ export function PersonalInfoForm(props: IPersonalInfoFormProps) {
         <div className="flex flex-col gap-12">
           <GeneralInformation defaultData={defaultData} />
           <hr className="border-gray-300" />
-          <OriginBirthDay defaultData={defaultData} />
+          <OriginBirthDay
+            countryDefaultData={countryDefaultData}
+            ubigeoDefaultData={ubigeoDefaultData}
+            defaultData={defaultData}
+          />
           <hr className="border-gray-300" />
           <DemographicInformation defaultData={defaultData} />
         </div>
@@ -125,6 +134,7 @@ export function PersonalInfoForm(props: IPersonalInfoFormProps) {
           </Button>
         </div>
       </form>
+      <LoadingAbsolute show={loading} />
     </Form>
   )
 }

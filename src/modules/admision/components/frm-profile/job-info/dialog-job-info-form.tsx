@@ -12,7 +12,7 @@ import {
 import { useFilterFromUrl } from '@/lib/filter-url'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { IPersonJob } from '@/types'
+import { ICountry, IPersonJob } from '@/types'
 import { Form } from '@/components/ui/form'
 import { createOrUpdateJobPerson } from '@/api/persons'
 import {
@@ -28,6 +28,7 @@ import { ADMISSION_URLS_APP } from '@/config/urls-data/admission.urls.config'
 import { PROFILE_FORM_LABELS } from '../config.constants'
 import { useEffect, useState } from 'react'
 import { DateRangeSection, JobInfosection } from './sections'
+import { LoadingAbsolute } from '@/modules/app'
 
 const { JOB_FORM } = PROFILE_FORM_LABELS
 const { TITLE, DESCRIPTION, MESSAGE } = JOB_FORM
@@ -35,11 +36,12 @@ const { TITLE, DESCRIPTION, MESSAGE } = JOB_FORM
 interface DialogAcademicInfoFormProps {
   person_token?: string
   defaultData?: IPersonJob
+  countryDefaultData: ICountry | null
 }
 
 export const DialogJobInfoForm = (props: DialogAcademicInfoFormProps) => {
   const { updateFilter } = useFilterFromUrl()
-  const { defaultData, person_token } = props
+  const { defaultData, person_token, countryDefaultData } = props
   const { jobSectorList } = useJobSector()
   const { setIsDirty } = useFormStore()
   const router = useRouter()
@@ -137,7 +139,7 @@ export const DialogJobInfoForm = (props: DialogAcademicInfoFormProps) => {
             >
               <div className="space-y-4">
                 {/* Job Info */}
-                <JobInfosection />
+                <JobInfosection countryDefaultData={countryDefaultData} />
                 {/* Date Range */}
                 <DateRangeSection />
               </div>
@@ -163,6 +165,7 @@ export const DialogJobInfoForm = (props: DialogAcademicInfoFormProps) => {
         handleCancel={handleCancelExit}
         handleConfirm={handleConfirmExit}
       />
+      <LoadingAbsolute show={isLoading} />
     </>
   )
 }

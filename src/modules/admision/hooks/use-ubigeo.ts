@@ -9,7 +9,7 @@ export const useUbigeo = () => {
   const [error, setError] = useState<string[] | null>(null)
 
   const getUbigeoList = async () => {
-    const response = await fetchUbigeo()
+    const response = await fetchUbigeo({})
     if (response.status !== 200) {
       setError(response.errors || ['Error al obtener los tipos de documentos'])
       setLoading(false)

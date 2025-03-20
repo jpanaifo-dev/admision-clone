@@ -1,16 +1,25 @@
 'use server'
-import { IUbigeo, IUbigeoFilterDataQuery } from '@/types'
+import { IUbigeo, IUbigeoFilter, IUbigeoFilterDataQuery } from '@/types'
 import { fetchCoreService } from '@/api/core'
 import { ENDPOINTS_CONFIG } from '@/config/endpoints.config'
 
 const apiDataUrl = ENDPOINTS_CONFIG.CORE
 
-export const fetchUbigeo = async (): Promise<{
+export const fetchUbigeo = async (
+  filters: IUbigeoFilter
+): Promise<{
   status: number
   data?: IUbigeo[]
   errors?: string[]
 }> => {
-  const url = `${apiDataUrl.UBIGEO}`
+  const params = new URLSearchParams()
+  for (const key in filters) {
+    if (filters[key as keyof IUbigeoFilter]) {
+      params.append(key, filters[key as keyof IUbigeoFilter] as string)
+    }
+  }
+
+  const url = `${apiDataUrl.UBIGEO}?${params}`
 
   try {
     const response = await fetchCoreService.get(url)

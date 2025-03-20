@@ -1,9 +1,10 @@
 import { getUserAuth } from '@/lib/session'
 import { JobInfoForm } from '@/modules/admision'
-import { IPersonJob, IPersonJobList, IUserAuth } from '@/types'
+import { ICountry, IPersonJob, IPersonJobList, IUserAuth } from '@/types'
 import { Metadata } from 'next'
 import { fetchPersonsJob, fetchPersonsJobList } from '@/api/persons'
 import { APPLICATION_METADATA } from '@/config/metadata'
+import { fetchCountry } from '@/api/location'
 
 export const metadata: Metadata = APPLICATION_METADATA.PAGES.JOB_INFO
 
@@ -19,6 +20,7 @@ export default async function Page(props: Props) {
 
   let jobInfo: IPersonJobList[] = []
   let jobData: IPersonJob = {} as IPersonJob
+  let countryData: ICountry | null = null
 
   const isActivedDialog = searchParams.add === 'true'
   const edit = searchParams?.edit && searchParams?.edit.toString()
@@ -50,6 +52,13 @@ export default async function Page(props: Props) {
     }
   }
 
+  if (jobData) {
+    const ubigeo = await fetchCountry({
+      uuid: jobData?.country_uuid,
+    })
+    countryData = ubigeo?.data?.[0] || null
+  }
+
   return (
     <JobInfoForm
       person_token={data.person_token}
@@ -57,6 +66,7 @@ export default async function Page(props: Props) {
       activeDialog={isActivedDialog}
       idEdit={edit}
       jobInfo={jobData}
+      countryDefaultData={countryData}
     />
   )
 }
